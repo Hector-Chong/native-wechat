@@ -87,7 +87,6 @@ public class NativeWechatModuleImpl implements IWXAPIEventHandler {
     wxApi.handleIntent(intent, instance);
   }
 
-  @ReactMethod
   public void registerApp(ReadableMap request) {
     appid = request.getString("appid");
     registered = true;

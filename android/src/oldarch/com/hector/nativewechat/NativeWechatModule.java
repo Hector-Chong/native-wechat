@@ -33,8 +33,8 @@ public class NativeWechatModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void registerApp(String id) {
-    moduleImpl.registerApp(id);
+  public void registerApp(ReadableMap request) {
+    moduleImpl.registerApp(request);
   }
 
   @ReactMethod
