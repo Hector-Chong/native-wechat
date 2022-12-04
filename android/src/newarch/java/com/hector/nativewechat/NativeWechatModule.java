@@ -33,7 +33,7 @@ public class NativeWechatModule extends NativeWechatSpec {
 
   @ReactMethod
   public void registerApp(ReadableMap request) {
-    moduleImpl.registerApp(id);
+    moduleImpl.registerApp(request);
   }
 
   @ReactMethod
