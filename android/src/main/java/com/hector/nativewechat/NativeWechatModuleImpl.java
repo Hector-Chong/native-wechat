@@ -91,8 +91,8 @@ public class NativeWechatModuleImpl implements IWXAPIEventHandler {
     appid = request.getString("appid");
     registered = true;
 
-    wxApi = WXAPIFactory.createWXAPI(reactContext, id, true);
-    wxApi.registerApp(id);
+    wxApi = WXAPIFactory.createWXAPI(reactContext, appid, true);
+    wxApi.registerApp(appid);
   }
 
   public void isWechatInstalled(Callback callback) {
