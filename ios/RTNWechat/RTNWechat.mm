@@ -95,7 +95,7 @@ RCT_EXPORT_METHOD(checkUniversalLinkReady:
     }];
 }
 
-RCT_EXPORT_METHOD(isWchatInstalled:
+RCT_EXPORT_METHOD(isWechatInstalled:
                   (RCTResponseSenderBlock)callback
                   )
 {

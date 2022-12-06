@@ -59,8 +59,8 @@ export const registerApp = (request: {
   return () => listener.remove();
 };
 
-export const isWchatInstalled = () => {
-  return promisifyNativeFunction<boolean>(NativeModule.isWchatInstalled)();
+export const isWechatInstalled = () => {
+  return promisifyNativeFunction<boolean>(NativeModule.isWechatInstalled)();
 };
 
 export const sendAuthRequest = (

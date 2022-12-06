@@ -1,11 +1,11 @@
 import {useEffect, useState} from 'react';
-import {isWchatInstalled} from '.';
+import {isWechatInstalled} from '.';
 
 export const useWechatInstalled = () => {
   const [hasInstalledWechat, setHasInstalledWechat] = useState(false);
 
   useEffect(() => {
-    isWchatInstalled().then(setHasInstalledWechat);
+    isWechatInstalled().then(setHasInstalledWechat);
   }, []);
 
   return hasInstalledWechat;
