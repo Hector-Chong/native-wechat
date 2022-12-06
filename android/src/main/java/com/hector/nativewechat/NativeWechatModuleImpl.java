@@ -144,7 +144,7 @@ public class NativeWechatModuleImpl implements IWXAPIEventHandler {
         msg.mediaObject = imgObj;
 
         msg.thumbData = NativeWechatUtils.bmpToByteArray(NativeWechatUtils.compressImage(bitmap, 128),
-          true);
+            true);
         bitmap.recycle();
 
         SendMessageToWX.Req req = new SendMessageToWX.Req();
@@ -177,7 +177,7 @@ public class NativeWechatModuleImpl implements IWXAPIEventHandler {
     BitmapDownload onCoverDownloaded = (bitmap) -> {
       if (bitmap != null) {
         msg.thumbData = NativeWechatUtils.bmpToByteArray(NativeWechatUtils.compressImage(bitmap, 128),
-          true);
+            true);
       }
 
       SendMessageToWX.Req req = new SendMessageToWX.Req();
@@ -221,7 +221,7 @@ public class NativeWechatModuleImpl implements IWXAPIEventHandler {
     BitmapDownload onCoverDownloaded = (bitmap) -> {
       if (bitmap != null) {
         msg.thumbData = NativeWechatUtils.bmpToByteArray(NativeWechatUtils.compressImage(bitmap, 128),
-          true);
+            true);
       }
 
       SendMessageToWX.Req req = new SendMessageToWX.Req();
@@ -273,7 +273,7 @@ public class NativeWechatModuleImpl implements IWXAPIEventHandler {
     BitmapDownload onCoverDownloaded = (bitmap) -> {
       if (bitmap != null) {
         msg.thumbData = NativeWechatUtils.bmpToByteArray(NativeWechatUtils.compressImage(bitmap, 128),
-          true);
+            true);
       }
 
       SendMessageToWX.Req req = new SendMessageToWX.Req();
@@ -300,7 +300,7 @@ public class NativeWechatModuleImpl implements IWXAPIEventHandler {
     }
   }
 
-  public void requestPayment(ReadableMap request, Callback callback) {
+  public void requestPayment(ReadableMap request) {
     PayReq payReq = new PayReq();
 
     payReq.partnerId = request.getString("partnerId");
@@ -312,7 +312,7 @@ public class NativeWechatModuleImpl implements IWXAPIEventHandler {
     payReq.extData = request.getString("extData");
     payReq.appId = appid;
 
-    callback.invoke(wxApi.sendReq(payReq) ? null : true);
+    wxApi.sendReq(payReq);
   }
 
   public void requestSubscribeMessage(ReadableMap request, Callback callback) {
@@ -361,7 +361,7 @@ public class NativeWechatModuleImpl implements IWXAPIEventHandler {
     WritableMap convertedData = NativeWechatRespDataHelper.downcastResp(baseResp);
 
     reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
-      .emit("NativeWechat_Response", convertedData);
+        .emit("NativeWechat_Response", convertedData);
   }
 
   interface BitmapDownload {

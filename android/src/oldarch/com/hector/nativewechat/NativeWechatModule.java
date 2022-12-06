@@ -68,8 +68,8 @@ public class NativeWechatModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void requestPayment(ReadableMap request, Callback callback) {
-    moduleImpl.requestPayment(request, callback);
+  public void requestPayment(ReadableMap request) {
+    moduleImpl.requestPayment(request);
   }
 
   @ReactMethod

@@ -67,8 +67,8 @@ public class NativeWechatModule extends NativeWechatSpec {
   }
 
   @ReactMethod
-  public void requestPayment(ReadableMap request, Callback callback) {
-    moduleImpl.requestPayment(request, callback);
+  public void requestPayment(ReadableMap request) {
+    moduleImpl.requestPayment(request);
   }
 
   @ReactMethod
