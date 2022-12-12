@@ -308,7 +308,7 @@ public class NativeWechatModuleImpl implements IWXAPIEventHandler {
     payReq.nonceStr = request.getString("nonceStr");
     payReq.timeStamp = request.getString("timeStamp");
     payReq.sign = request.getString("sign");
-    payReq.packageValue = request.getString("package");
+    payReq.packageValue = "Sign=WXPay";
     payReq.extData = request.getString("extData");
     payReq.appId = appid;
 
