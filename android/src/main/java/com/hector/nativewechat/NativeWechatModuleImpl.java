@@ -1,5 +1,6 @@
 package com.hector.nativewechat;
 
+import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -11,7 +12,6 @@ import androidx.annotation.Nullable;
 
 import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReactApplicationContext;
-import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
@@ -144,7 +144,7 @@ public class NativeWechatModuleImpl implements IWXAPIEventHandler {
         msg.mediaObject = imgObj;
 
         msg.thumbData = NativeWechatUtils.bmpToByteArray(NativeWechatUtils.compressImage(bitmap, 128),
-            true);
+          true);
         bitmap.recycle();
 
         SendMessageToWX.Req req = new SendMessageToWX.Req();
@@ -177,7 +177,7 @@ public class NativeWechatModuleImpl implements IWXAPIEventHandler {
     BitmapDownload onCoverDownloaded = (bitmap) -> {
       if (bitmap != null) {
         msg.thumbData = NativeWechatUtils.bmpToByteArray(NativeWechatUtils.compressImage(bitmap, 128),
-            true);
+          true);
       }
 
       SendMessageToWX.Req req = new SendMessageToWX.Req();
@@ -221,7 +221,7 @@ public class NativeWechatModuleImpl implements IWXAPIEventHandler {
     BitmapDownload onCoverDownloaded = (bitmap) -> {
       if (bitmap != null) {
         msg.thumbData = NativeWechatUtils.bmpToByteArray(NativeWechatUtils.compressImage(bitmap, 128),
-            true);
+          true);
       }
 
       SendMessageToWX.Req req = new SendMessageToWX.Req();
@@ -273,7 +273,7 @@ public class NativeWechatModuleImpl implements IWXAPIEventHandler {
     BitmapDownload onCoverDownloaded = (bitmap) -> {
       if (bitmap != null) {
         msg.thumbData = NativeWechatUtils.bmpToByteArray(NativeWechatUtils.compressImage(bitmap, 128),
-            true);
+          true);
       }
 
       SendMessageToWX.Req req = new SendMessageToWX.Req();
@@ -361,7 +361,7 @@ public class NativeWechatModuleImpl implements IWXAPIEventHandler {
     WritableMap convertedData = NativeWechatRespDataHelper.downcastResp(baseResp);
 
     reactContext.getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
-        .emit("NativeWechat_Response", convertedData);
+      .emit("NativeWechat_Response", convertedData);
   }
 
   interface BitmapDownload {

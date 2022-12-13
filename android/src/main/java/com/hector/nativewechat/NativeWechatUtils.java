@@ -1,14 +1,18 @@
 package com.hector.nativewechat;
 
+import android.app.Activity;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Rect;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
 
@@ -82,15 +86,23 @@ public class NativeWechatUtils {
     ByteArrayOutputStream baos = new ByteArrayOutputStream();
     image.compress(Bitmap.CompressFormat.JPEG, 100, baos);
     int options = 100;
+
     while (baos.toByteArray().length / 1024 > size) {
+      // 重置baos即清空baos
       baos.reset();
+      if (options > 10) {
+        options -= 8;
+      } else {
+        return compressImage(Bitmap.createScaledBitmap(image, 280, image.getHeight() / image.getWidth() * 280, true), size);
+      }
+      // 这里压缩options%，把压缩后的数据存放到baos中
       image.compress(Bitmap.CompressFormat.JPEG, options, baos);
-      options -= 10;
     }
 
     ByteArrayInputStream isBm = new ByteArrayInputStream(baos.toByteArray());
-    Bitmap bitmap = BitmapFactory.decodeStream(isBm, null, null);
-    return bitmap;
+    Bitmap newBitmap = BitmapFactory.decodeStream(isBm, null, null);
+
+    return newBitmap;
   }
 
   public interface DownloadBitmapCallback {
