@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
-    "target": "es2017",
-    "module": "commonjs",
+    "target": "ESNext",
+    "module": "ESNext",
+    "useDefineForClassFields": true,
     "removeComments": false,
     "preserveConstEnums": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "noImplicitAny": false,
     "allowSyntheticDefaultImports": true,
-    "outDir": "lib",
+    "outDir": "dist",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "strictNullChecks": true,
@@ -19,16 +20,19 @@
     "allowJs": true,
     "resolveJsonModule": true,
     "typeRoots": [
-      "node_modules/@types",
+      "node_modules/@types"
     ],
     "paths": {
       "@/*": [
         "./src/*"
       ]
-    },
+    }
   },
+  "include": [
+    "src"
+  ],
   "exclude": [
-    "node_modules",
+    "node_modules"
   ],
   "compileOnSave": false
 }
