@@ -3,9 +3,11 @@
     "version": "1.0.7",
     "description": "A React Native library for supporting Wechat APIs on Android and iOS",
     "react-native": "src/index",
-    "main": "src/index",
+    "main": "dist/index.mjs",
+    "types": "dist/index.d.ts",
     "scripts": {
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "build": "tsc && vite build"
     },
     "files": [
         "src",
@@ -32,15 +34,20 @@
     "homepage": "https://github.com/Hector-Chong/native-wechat#readme",
     "devDependencies": {
         "@react-native-community/eslint-config": "^2.0.0",
-        "prettier": "^2.5.1",
-        "@typescript-eslint/parser": "^5.30.0",
+        "@rollup/plugin-typescript": "^10.0.1",
         "@typescript-eslint/eslint-plugin": "^4.15.1",
+        "@typescript-eslint/parser": "^5.30.0",
+        "@vitejs/plugin-react-swc": "^3.0.1",
+        "commitizen": "^4.2.4",
+        "cz-conventional-changelog": "3.3.0",
         "eslint": "7.32.0",
         "git-cz": "^4.9.0",
         "husky": "^8.0.0",
-        "cz-conventional-changelog": "3.3.0",
-        "commitizen": "^4.2.4",
-        "react-native": "^0.70.5"
+        "prettier": "^2.5.1",
+        "react-native": "^0.70.6",
+        "tslib": "^2.4.1",
+        "typescript": "^4.9.4",
+        "vite": "^4.0.4"
     },
     "peerDependencies": {
         "react": "*",
