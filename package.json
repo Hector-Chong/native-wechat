@@ -1,10 +1,10 @@
 {
     "name": "native-wechat",
-    "version": "1.0.8",
+    "version": "1.0.9",
     "description": "A React Native library for supporting Wechat APIs on Android and iOS",
     "react-native": "src/index",
     "main": "dist/index.mjs",
-    "types": "dist/index.d.ts",
+    "types": "dist/src/index.d.ts",
     "scripts": {
         "prepare": "husky install",
         "build": "tsc && vite build"
@@ -71,5 +71,8 @@
             "pre-commit": "exec < /dev/tty && npx cz --hook || true",
             "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
         }
+    },
+    "dependencies": {
+        "@types/react": "^18.0.26"
     }
 }

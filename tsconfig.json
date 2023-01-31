@@ -1,15 +1,16 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
+    "target": "ES2015",
     "module": "ESNext",
     "useDefineForClassFields": true,
     "removeComments": false,
+    "declaration": true,
     "preserveConstEnums": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "noImplicitAny": false,
     "allowSyntheticDefaultImports": true,
-    "outDir": "dist",
+    "outDir": "./dist",
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "strictNullChecks": true,
