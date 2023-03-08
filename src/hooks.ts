@@ -5,7 +5,9 @@ export const useWechatInstalled = () => {
   const [hasInstalledWechat, setHasInstalledWechat] = useState(false);
 
   useEffect(() => {
-    isWechatInstalled().then(setHasInstalledWechat);
+    isWechatInstalled()
+      .then(() => setHasInstalledWechat(true))
+      .catch(() => setHasInstalledWechat(false));
   }, []);
 
   return hasInstalledWechat;

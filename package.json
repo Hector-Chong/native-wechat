@@ -1,6 +1,6 @@
 {
     "name": "native-wechat",
-    "version": "1.0.10",
+    "version": "1.0.11",
     "description": "A React Native library for supporting Wechat APIs on Android and iOS",
     "react-native": "src/index",
     "main": "dist/index.mjs",
@@ -42,6 +42,8 @@
         "commitizen": "^4.2.4",
         "cz-conventional-changelog": "3.3.0",
         "eslint": "7.32.0",
+        "eslint-config-prettier": "^8.6.0",
+        "eslint-plugin-prettier": "^4.2.1",
         "git-cz": "^4.9.0",
         "husky": "^8.0.0",
         "prettier": "^2.5.1",
