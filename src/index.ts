@@ -72,9 +72,13 @@ export const sendAuthRequest = (
 ) => {
   assertRegisteration('sendAuthRequest');
 
-  NativeModule.sendAuthRequest(request);
+  const fn = promisifyNativeFunction<Promise<boolean>>(
+    NativeModule.sendAuthRequest,
+  );
 
   return new Promise<SendAuthRequestResponse>((resolve, reject) => {
+    fn(request).catch(reject);
+
     notification.once('SendAuthResp', (error, response) => {
       if (error) {
         return reject(error);
@@ -160,9 +164,13 @@ export const requestPayment = (request: {
 }) => {
   assertRegisteration('requestPayment');
 
-  NativeModule.requestPayment(request);
+  const fn = promisifyNativeFunction<Promise<boolean>>(
+    NativeModule.requestPayment,
+  );
 
-  return new Promise<NativeWechatResponse>((resolve, reject) => {
+  return new Promise<NativeWechatResponse>(async (resolve, reject) => {
+    fn(request).catch(reject);
+
     notification.once('PayResp', (error, response) => {
       if (error) {
         return reject(error);
