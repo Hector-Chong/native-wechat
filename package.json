@@ -1,6 +1,6 @@
 {
     "name": "native-wechat",
-    "version": "1.0.11",
+    "version": "1.0.12",
     "description": "A React Native library for supporting Wechat APIs on Android and iOS",
     "react-native": "src/index",
     "main": "dist/index.mjs",
