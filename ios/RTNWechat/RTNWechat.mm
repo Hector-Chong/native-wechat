@@ -106,6 +106,7 @@ RCT_EXPORT_METHOD(isWechatInstalled:
 
 RCT_EXPORT_METHOD(sendAuthRequest:
                   (NSDictionary *)params
+                  callback:(RCTResponseSenderBlock)callback
                  )
 {
     SendAuthReq* req = [[SendAuthReq alloc] init];
@@ -113,8 +114,9 @@ RCT_EXPORT_METHOD(sendAuthRequest:
     req.scope = [params valueForKey:@"scope"];
     req.state = [params valueForKey:@"state"];
     
-    [WXApi sendReq:req completion:nil];
-}
+    [WXApi sendReq:req completion:^(BOOL success){
+        callback(@[[NSNumber numberWithBool:!success]]);
+    }];}
 
 RCT_EXPORT_METHOD(shareText:
                   (NSDictionary *)params
@@ -298,6 +300,7 @@ RCT_EXPORT_METHOD(shareMiniProgram:
 
 RCT_EXPORT_METHOD(requestPayment:
                   (NSDictionary *)params
+                  callback:(RCTResponseSenderBlock)callback
                   )
 {
     PayReq *request = [[PayReq alloc] init];
@@ -309,7 +312,9 @@ RCT_EXPORT_METHOD(requestPayment:
     request.timeStamp = UInt32([[params valueForKey:@"timeStamp"] unsignedIntValue]);
     request.sign = [params valueForKey:@"sign"];
     
-    [WXApi sendReq:request completion:nil];
+    [WXApi sendReq:request completion:^(BOOL success){
+        callback(@[[NSNumber numberWithBool:!success]]);
+    }];
 }
 
 RCT_EXPORT_METHOD(requestSubscribeMessage:

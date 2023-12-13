@@ -99,13 +99,13 @@ public class NativeWechatModuleImpl implements IWXAPIEventHandler {
     callback.invoke(!wxApi.isWXAppInstalled());
   }
 
-  public void sendAuthRequest(ReadableMap request) {
+  public void sendAuthRequest(ReadableMap request, Callback callback) {
     SendAuth.Req req = new SendAuth.Req();
 
     req.scope = request.getString("scope");
     req.state = request.getString("state");
 
-    wxApi.sendReq(req);
+    callback.invoke(wxApi.sendReq(req) ? null : true);
   }
 
   public void shareText(ReadableMap request, Callback callback) {
@@ -300,7 +300,7 @@ public class NativeWechatModuleImpl implements IWXAPIEventHandler {
     }
   }
 
-  public void requestPayment(ReadableMap request) {
+  public void requestPayment(ReadableMap request, Callback callback) {
     PayReq payReq = new PayReq();
 
     payReq.partnerId = request.getString("partnerId");
@@ -312,7 +312,7 @@ public class NativeWechatModuleImpl implements IWXAPIEventHandler {
     payReq.extData = request.getString("extData");
     payReq.appId = appid;
 
-    wxApi.sendReq(payReq);
+    callback.invoke(wxApi.sendReq(payReq) ? null : true);
   }
 
   public void requestSubscribeMessage(ReadableMap request, Callback callback) {

@@ -27,8 +27,8 @@ public class NativeWechatModule extends NativeWechatSpec {
   }
 
   @ReactMethod
-  public void sendAuthRequest(ReadableMap request) {
-    moduleImpl.sendAuthRequest(request);
+  public void sendAuthRequest(ReadableMap request, Callback callback) {
+    moduleImpl.sendAuthRequest(request, callback);
   }
 
   @ReactMethod
@@ -67,8 +67,8 @@ public class NativeWechatModule extends NativeWechatSpec {
   }
 
   @ReactMethod
-  public void requestPayment(ReadableMap request) {
-    moduleImpl.requestPayment(request);
+  public void requestPayment(ReadableMap request, Callback callback) {
+    moduleImpl.requestPayment(request, callback);
   }
 
   @ReactMethod
