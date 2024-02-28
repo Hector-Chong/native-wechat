@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "RTNWechatUtils.h"
 
 @implementation RTNWechatUtils
@@ -26,6 +27,20 @@
     }];
     
     [task resume];
+}
+
++ (NSData *)compressImage:(NSData *)data limit:(NSNumber * _Nonnull)limit
+{
+    UIImage *image = [UIImage imageWithData:data];
+    CGFloat compression = 1.0;
+    NSData *compressedData = UIImageJPEGRepresentation(image, compression);
+
+    while (compressedData.length > [limit intValue] && compression > 0.0) {
+        compression -= 0.1;
+        compressedData = UIImageJPEGRepresentation(image, compression);
+    }
+
+    return compressedData;
 }
 
 @end

@@ -196,7 +196,9 @@ RCT_EXPORT_METHOD(shareVideo:
         NSURL *url = [NSURL URLWithString:params[@"coverUrl"]];
         
         [RTNWechatUtils downloadFile:url onSuccess:^(NSData * _Nullable data) {
-            onCoverDownloaded(data);
+            NSData* compressed = [RTNWechatUtils compressImage:data limit:@32000];
+            
+            onCoverDownloaded(compressed);
         } onError:^(NSError *error) {
             callback(@[@1, error.localizedDescription]);
         }];
@@ -237,7 +239,9 @@ RCT_EXPORT_METHOD(shareWebpage:
         NSURL *url = [NSURL URLWithString:params[@"coverUrl"]];
         
         [RTNWechatUtils downloadFile:url onSuccess:^(NSData * _Nullable data) {
-            onCoverDownloaded(data);
+            NSData* compressed = [RTNWechatUtils compressImage:data limit:@32000];
+            
+            onCoverDownloaded(compressed);
         } onError:^(NSError *error) {
             callback(@[@1, error.localizedDescription]);
         }];
@@ -289,7 +293,9 @@ RCT_EXPORT_METHOD(shareMiniProgram:
         NSURL *url = [NSURL URLWithString:params[@"coverUrl"]];
         
         [RTNWechatUtils downloadFile:url onSuccess:^(NSData * _Nullable data) {
-            onCoverDownloaded(data);
+            NSData* compressed = [RTNWechatUtils compressImage:data limit:@32000];
+            
+            onCoverDownloaded(compressed);
         } onError:^(NSError *error) {
             callback(@[@1, error.localizedDescription]);
         }];
