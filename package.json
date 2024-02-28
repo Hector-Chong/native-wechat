@@ -1,81 +1,86 @@
 {
-    "name": "native-wechat",
-    "version": "1.0.13",
-    "description": "A React Native library for supporting Wechat APIs on Android and iOS",
-    "react-native": "src/index",
-    "main": "dist/index.mjs",
-    "types": "dist/src/index.d.ts",
-    "scripts": {
-        "prepare": "husky install",
-        "build": "tsc && vite build"
-    },
-    "files": [
-        "src",
-        "android",
-        "ios",
-        "dist",
-        "RTNWechat.podspec",
-        "!android/build",
-        "!ios/build",
-        "!**/__tests__",
-        "!**/__fixtures__",
-        "!**/__mocks__"
-    ],
-    "keywords": [
-        "react-native",
-        "ios",
-        "android"
-    ],
-    "repository": "https://github.com/Hector-Chong/native-wechat",
-    "author": "Héctor Chong <i@hector.im> (https://github.com/Hector-Chong)",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/Hector-Chong/native-wechat/issues"
-    },
-    "homepage": "https://github.com/Hector-Chong/native-wechat#readme",
-    "devDependencies": {
-        "@react-native-community/eslint-config": "^2.0.0",
-        "@rollup/plugin-typescript": "^10.0.1",
-        "@typescript-eslint/eslint-plugin": "^4.15.1",
-        "@typescript-eslint/parser": "^5.30.0",
-        "@vitejs/plugin-react-swc": "^3.0.1",
-        "commitizen": "^4.2.4",
-        "cz-conventional-changelog": "3.3.0",
-        "eslint": "7.32.0",
-        "eslint-config-prettier": "^8.6.0",
-        "eslint-plugin-prettier": "^4.2.1",
-        "git-cz": "^4.9.0",
-        "husky": "^8.0.0",
-        "prettier": "^2.5.1",
-        "react-native": "^0.70.6",
-        "tslib": "^2.4.1",
-        "typescript": "^4.9.4",
-        "vite": "^4.0.4"
-    },
-    "peerDependencies": {
-        "react": "*",
-        "react-native": "*"
-    },
-    "codegenConfig": {
-        "name": "NativeWechatSpec",
-        "type": "modules",
-        "jsSrcsDir": "src",
-        "android": {
-            "javaPackageName": "com.hector.nativewechat"
-        }
-    },
-    "config": {
-        "commitizen": {
-            "path": "node_modules/git-cz"
-        }
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "exec < /dev/tty && npx cz --hook || true",
-            "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
-        }
-    },
-    "dependencies": {
-        "@types/react": "^18.0.26"
+  "name": "native-wechat",
+  "version": "1.0.14",
+  "description": "A React Native library for supporting Wechat APIs on Android and iOS",
+  "react-native": "src/index",
+  "main": "dist/index.mjs",
+  "types": "dist/src/index.d.ts",
+  "scripts": {
+    "prepare": "husky install",
+    "build": "tsc && vite build",
+    "expo-build": "expo-module build",
+    "expo-clean": "expo-module clean"
+  },
+  "files": [
+    "src",
+    "android",
+    "ios",
+    "dist",
+    "RTNWechat.podspec",
+    "!android/build",
+    "!ios/build",
+    "!**/__tests__",
+    "!**/__fixtures__",
+    "!**/__mocks__"
+  ],
+  "keywords": [
+    "react-native",
+    "ios",
+    "android"
+  ],
+  "repository": "https://github.com/Hector-Chong/native-wechat",
+  "author": "Héctor Chong <i@hector.im> (https://github.com/Hector-Chong)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Hector-Chong/native-wechat/issues"
+  },
+  "homepage": "https://github.com/Hector-Chong/native-wechat#readme",
+  "devDependencies": {
+    "@react-native-community/eslint-config": "^2.0.0",
+    "@rollup/plugin-typescript": "^10.0.1",
+    "@typescript-eslint/eslint-plugin": "^4.15.1",
+    "@typescript-eslint/parser": "^5.30.0",
+    "@vitejs/plugin-react-swc": "^3.0.1",
+    "commitizen": "^4.2.4",
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "7.32.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "expo-module-scripts": "^3.4.1",
+    "git-cz": "^4.9.0",
+    "husky": "^8.0.0",
+    "prettier": "^2.5.1",
+    "react-native": "^0.70.6",
+    "tslib": "^2.4.1",
+    "typescript": "^4.9.4",
+    "vite": "^4.0.4"
+  },
+  "peerDependencies": {
+    "expo": "*",
+    "react": "*",
+    "react-native": "*"
+  },
+  "codegenConfig": {
+    "name": "NativeWechatSpec",
+    "type": "modules",
+    "jsSrcsDir": "src",
+    "android": {
+      "javaPackageName": "com.hector.nativewechat"
     }
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/git-cz"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "exec < /dev/tty && npx cz --hook || true",
+      "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
+    }
+  },
+  "dependencies": {
+    "@types/react": "^18.0.26",
+    "expo-modules-core": "^X.Y.Z"
+  }
 }

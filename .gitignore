@@ -50,3 +50,4 @@ buck-out/
 
 # Native Wechat
 dist/
+example/
