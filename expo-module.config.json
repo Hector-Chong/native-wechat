@@ -1,7 +1,8 @@
 {
   "platforms": ["ios", "android"],
   "ios": {
-    "modules": []
+    "modules": [],
+    "appDelegateSubscribers": ["ExpoWechatDelegate"]
   },
   "android": {
     "modules": []
