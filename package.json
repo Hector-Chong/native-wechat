@@ -47,7 +47,6 @@
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
     "expo-module-scripts": "^3.4.1",
-    "expo-modules-core": "^X.Y.Z",
     "git-cz": "^4.9.0",
     "husky": "^8.0.0",
     "prettier": "^2.5.1",
