@@ -47,13 +47,15 @@
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-prettier": "^4.2.1",
     "expo-module-scripts": "^3.4.1",
+    "expo-modules-core": "^X.Y.Z",
     "git-cz": "^4.9.0",
     "husky": "^8.0.0",
     "prettier": "^2.5.1",
     "react-native": "^0.70.6",
     "tslib": "^2.4.1",
     "typescript": "^4.9.4",
-    "vite": "^4.0.4"
+    "vite": "^4.0.4",
+    "@types/react": "^18.0.26"
   },
   "peerDependencies": {
     "expo": "*",
@@ -78,8 +80,5 @@
       "pre-commit": "exec < /dev/tty && npx cz --hook || true",
       "commit-msg": "commitlint -e $HUSKY_GIT_PARAMS"
     }
-  },
-  "dependencies": {
-    "@types/react": "^18.0.26"
   }
 }
