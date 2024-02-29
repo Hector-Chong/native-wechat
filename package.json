@@ -80,7 +80,6 @@
     }
   },
   "dependencies": {
-    "@types/react": "^18.0.26",
-    "expo-modules-core": "^X.Y.Z"
+    "@types/react": "^18.0.26"
   }
 }
