@@ -17,6 +17,7 @@
     "ios",
     "dist",
     "RTNWechat.podspec",
+    "expo-module.config.json",
     "!android/build",
     "!ios/build",
     "!**/__tests__",
