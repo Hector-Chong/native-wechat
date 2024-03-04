@@ -39,14 +39,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var config_plugins_1 = require("@expo/config-plugins");
 var fs = require("fs");
 var path = require("path");
-var wxapiAppDelegateH = function (config) {
+var wxapiAppDelegateH = function (config, props) {
+    var iosProjectName = props.iosProjectName;
     return (0, config_plugins_1.withDangerousMod)(config, [
         'ios',
         function (config) { return __awaiter(void 0, void 0, void 0, function () {
             var fileName, projectName, srcFilePath, data, newData;
             return __generator(this, function (_a) {
                 fileName = 'AppDelegate.h';
-                projectName = 'JohomePro';
+                projectName = iosProjectName;
                 srcFilePath = path.resolve(config.modRequest.platformProjectRoot, projectName, fileName);
                 data = fs.readFileSync(srcFilePath, 'utf-8');
                 if (data.includes('#import "WXApi.h"')) {
@@ -54,7 +55,7 @@ var wxapiAppDelegateH = function (config) {
                 }
                 newData = data
                     .replace('#import <UIKit/UIKit.h>', '#import <UIKit/UIKit.h>\n#import "WXApi.h"')
-                    .replace('EXAppDelegateWrapper', 'RCTAppDelegate <UIApplicationDelegate, WXApiDelegate>');
+                    .replace('EXAppDelegateWrapper', 'EXAppDelegateWrapper <UIApplicationDelegate, RCTBridgeDelegate, WXApiDelegate>');
                 //write the file
                 fs.writeFileSync(srcFilePath, newData, 'utf-8');
                 return [2 /*return*/, config];

@@ -2,13 +2,16 @@ import type { ConfigPlugin } from '@expo/config-plugins'
 import { withDangerousMod } from '@expo/config-plugins'
 import * as fs from 'fs'
 import * as path from 'path'
+import { WechatConfigProps } from '..'
 
-const wxapiAndroid: ConfigPlugin = (config) => {
+const wxapiAndroid: ConfigPlugin<WechatConfigProps> = (config, props) => {
+  const { androidPackageName } = props
   return withDangerousMod(config, [
     'android',
     async (config) => {
-      const customePackageName = 'com.johome.pro'
-      const srcPath = path.resolve(config.modRequest.projectRoot, config.modRequest.platformProjectRoot, `app/src/main/java/com/johome/pro`)
+      const customePackageName = androidPackageName
+      const packagePath = customePackageName.replace(/\./g, '/')
+      const srcPath = path.resolve(config.modRequest.projectRoot, config.modRequest.platformProjectRoot, `app/src/main/java/${packagePath}`)
       //create a new file
       const newFileName = 'WXEntryActivity.java'
       const newFolderName = 'wxapi'

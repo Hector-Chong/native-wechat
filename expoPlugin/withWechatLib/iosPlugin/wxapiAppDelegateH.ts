@@ -2,14 +2,16 @@ import type { ConfigPlugin } from '@expo/config-plugins'
 import { withDangerousMod } from '@expo/config-plugins'
 import * as fs from 'fs'
 import * as path from 'path'
+import { WechatConfigProps } from '..'
 
-const wxapiAppDelegateH: ConfigPlugin = (config) => {
+const wxapiAppDelegateH: ConfigPlugin<WechatConfigProps> = (config, props) => {
+  const { iosProjectName } = props
   return withDangerousMod(config, [
     'ios',
     async (config) => {
       //read the target file
       const fileName = 'AppDelegate.h'
-      const projectName = 'JohomePro'
+      const projectName = iosProjectName
       const srcFilePath = path.resolve(config.modRequest.platformProjectRoot, projectName, fileName)
 
       //read the file
@@ -20,7 +22,7 @@ const wxapiAppDelegateH: ConfigPlugin = (config) => {
       //modify the file
       const newData = data
         .replace('#import <UIKit/UIKit.h>', '#import <UIKit/UIKit.h>\n#import "WXApi.h"')
-        .replace('EXAppDelegateWrapper', 'RCTAppDelegate <UIApplicationDelegate, WXApiDelegate>')
+        .replace('EXAppDelegateWrapper', 'EXAppDelegateWrapper <UIApplicationDelegate, RCTBridgeDelegate, WXApiDelegate>')
       //write the file
       fs.writeFileSync(srcFilePath, newData, 'utf-8')
 

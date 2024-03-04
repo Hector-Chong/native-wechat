@@ -39,14 +39,16 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var config_plugins_1 = require("@expo/config-plugins");
 var fs = require("fs");
 var path = require("path");
-var wxapiAndroid = function (config) {
+var wxapiAndroid = function (config, props) {
+    var androidPackageName = props.androidPackageName;
     return (0, config_plugins_1.withDangerousMod)(config, [
         'android',
         function (config) { return __awaiter(void 0, void 0, void 0, function () {
-            var customePackageName, srcPath, newFileName, newFolderName, newFileContent, newFilePath, newFolderPath, payApiFileName, payApiFileContent, payApiFilePath;
+            var customePackageName, packagePath, srcPath, newFileName, newFolderName, newFileContent, newFilePath, newFolderPath, payApiFileName, payApiFileContent, payApiFilePath;
             return __generator(this, function (_a) {
-                customePackageName = 'com.johome.pro';
-                srcPath = path.resolve(config.modRequest.projectRoot, config.modRequest.platformProjectRoot, "app/src/main/java/com/johome/pro");
+                customePackageName = androidPackageName;
+                packagePath = customePackageName.replace(/\./g, '/');
+                srcPath = path.resolve(config.modRequest.projectRoot, config.modRequest.platformProjectRoot, "app/src/main/java/".concat(packagePath));
                 newFileName = 'WXEntryActivity.java';
                 newFolderName = 'wxapi';
                 newFileContent = "\npackage ".concat(customePackageName, ".wxapi;\nimport android.app.Activity;\nimport android.content.Intent;\nimport android.os.Bundle;\n\npublic class WXEntryActivity extends Activity {\n  @Override\n  public void onCreate(Bundle savedInstanceState) {\n    super.onCreate(savedInstanceState);\n\n    try {\n      Intent intent = getIntent();\n      Intent intentToBroadcast = new Intent();\n\n      intentToBroadcast.setAction(\"com.hector.nativewechat.ACTION_REDIRECT_INTENT\");\n      intentToBroadcast.putExtra(\"intent\", intent);\n\n      sendBroadcast(intentToBroadcast);\n\n      finish();\n    } catch (Exception e) {\n      e.printStackTrace();\n    }\n  }\n}\n");
