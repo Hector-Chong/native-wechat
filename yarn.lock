@@ -5379,10 +5379,10 @@ expo-module-scripts@^3.4.1:
     ts-jest "~29.0.4"
     typescript "^5.1.3"
 
-expo-modules-core@^X.Y.Z:
-  version "1.11.9"
-  resolved "https://registry.npmmirror.com/expo-modules-core/-/expo-modules-core-1.11.9.tgz#4b95070390fe7e3418aa84580244bcf0540357ca"
-  integrity sha512-GTUb81vcPaF+5MtlBI1u9IjrZbGdF1ZUwz3u8Gc+rOLBblkZ7pYsj2mU/tu+k0khTckI9vcH4ZBksXWvE1ncjQ==
+expo-modules-core@^1.11.12:
+  version "1.11.12"
+  resolved "https://registry.npmmirror.com/expo-modules-core/-/expo-modules-core-1.11.12.tgz#d5c7b3ed7ab57d4fb6885a0d8e10287dcf1ffe5f"
+  integrity sha512-/e8g4kis0pFLer7C0PLyx98AfmztIM6gU9jLkYnB1pU9JAfQf904XEi3bmszO7uoteBQwSL6FLp1m3TePKhDaA==
   dependencies:
     invariant "^2.2.4"
 
