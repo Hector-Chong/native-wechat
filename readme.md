@@ -17,6 +17,11 @@
   </a>
 </p>
 
+## For Expo Project
+
+Please refer to [Expo Native Wechat](https://github.com/Hector-Chong/expo-native-wechat)
+
+
 # Motivation
 
 Most developers using React Native to build apps are not equipped with native developing skills, not to mention connecting their apps with WeChat.
