@@ -86,4 +86,8 @@ public class NativeWechatModule extends ReactContextBaseJavaModule {
   public void openCustomerService(ReadableMap request, Callback callback) {
     moduleImpl.openCustomerService(request, callback);
   }
+
+  @ReactMethod
+  public void addListener(String eventName) {
+  }
 }

@@ -85,4 +85,8 @@ public class NativeWechatModule extends NativeWechatSpec {
   public void openCustomerService(ReadableMap request, Callback callback) {
     moduleImpl.openCustomerService(request, callback);
   }
+
+  @ReactMethod
+  public void addListener(String eventName) {
+  }
 }
