@@ -38,13 +38,10 @@ export const registerApp = (request: {
   log?: boolean;
   logPrefix?: string;
 }) => {
-  if (registered) {
-    return;
+  if (!registered) {
+    NativeModule.registerApp(request);
+    registered = true;
   }
-
-  registered = true;
-
-  NativeModule.registerApp(request);
 
   const nativeEmitter = new NativeEventEmitter(NativeModule);
 
