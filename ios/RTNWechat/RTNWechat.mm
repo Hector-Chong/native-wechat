@@ -100,8 +100,7 @@ RCT_EXPORT_METHOD(isWechatInstalled:
                   )
 {
     BOOL installed = [WXApi isWXAppInstalled];
-    
-    callback(@[[NSNumber numberWithBool:!installed]]);
+    callback(@[[NSNull null], @(installed)]);
 }
 
 RCT_EXPORT_METHOD(sendAuthRequest:
