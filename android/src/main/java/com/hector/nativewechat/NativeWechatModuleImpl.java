@@ -129,7 +129,7 @@ public class NativeWechatModuleImpl implements IWXAPIEventHandler {
   }
 
   public void isWechatInstalled(Callback callback) {
-    callback.invoke(!wxApi.isWXAppInstalled());
+    callback.invoke(null, wxApi.isWXAppInstalled());
   }
 
   public void sendAuthRequest(ReadableMap request, Callback callback) {
